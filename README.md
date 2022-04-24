@@ -49,8 +49,8 @@ For this project, I created 2 pages:
 - CSS custom properties
 - Flexbox
 - [React](https://reactjs.org/)
-- [React Router] (https://v5.reactrouter.com/web/guides/quick-start)
-- [Material UI] (https://v4.mui.com/) - for display alert message
+- [React Router](https://v5.reactrouter.com/web/guides/quick-start)
+- [Material UI](https://v4.mui.com/) - for display alert message
 
 ### What I learned
 
