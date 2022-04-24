@@ -1,0 +1,45 @@
+.thankyou-box {
+    background-color: var(--verydarkblue-color);
+    height: 320px;
+    width: 320px;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+img {
+    height: 80%;
+    width: 90%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.select-rating-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    color: var(--orange-color);
+    background-color: var(--darkblue-color);
+    border-radius: 25px;
+    margin-top: 10px;
+}
+
+.thank-you-text {
+    margin-top: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.long-text {
+    margin-top: 0px;
+    text-align: center;
+    color: var(--lightgrey-color)
+}

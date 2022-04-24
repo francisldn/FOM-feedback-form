@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import React,{useState, useEffect} from 'react';
+import Ratings from './Pages/Ratings/Ratings';
+import Thankyou from './Pages/Thankyou/Thankyou';
+import {BrowserRouter as Router,Route, Switch, generatePath} from 'react-router-dom';
+import Alert from './components/Alert';
 import './App.css';
 
 function App() {
+  const [ratings, setRatings] = useState(0)
+  const [alert, setAlert] = useState({
+    open: false,
+    message: "",
+    type: "error",
+  })
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router forceRefresh={true}>
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <Ratings ratings={ratings} setRatings = {setRatings} setAlert={setAlert}/>
+          </Route>
+          <Route exact path="/thankyou/:ratings">
+            <Thankyou ratings={ratings}/>
+          </Route>
+        </Switch>
+      </div>
+      <Alert alert={alert} setAlert={setAlert}/>
+    </Router>
   );
 }
 
