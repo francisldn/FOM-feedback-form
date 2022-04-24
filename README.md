@@ -23,9 +23,9 @@ This challenge requires the developer to build a feedback form such that users w
 
 ### Screenshot
 
-<img src ="/form.png"/>
+<img src ="form.png"/>
 
-<img src="/thankyou.png"/>
+<img src="thankyou.png"/>
 
 ### Links
 
