@@ -50,7 +50,7 @@ For this project, I created 2 pages:
 - Flexbox
 - [React](https://reactjs.org/)
 - [React Router](https://v5.reactrouter.com/web/guides/quick-start)
-- [Material UI](https://v4.mui.com/) - for display alert message
+- [Material UI](https://v4.mui.com/) - to display alert message
 
 ### What I learned
 
@@ -76,14 +76,12 @@ for (let i=0; i<n; i++) {
         ratingRef.current.children[i].style.cssText += "background-color:var(--darkblue-color); color:var(--lightgrey-color)"
     }
 }
-
 ```
 * ``useParams`` to store and persist state through URL parameters
 ```
 import {useParams} from 'react-router-dom';
 // extract ratings from URL parameters
 const {ratings} = useParams();
-
 ```
 * ``useHistory`` to route webpage
 ```
@@ -95,7 +93,6 @@ const handleSubmit = () => {
   // route to another page
   history.push("/thankyou/"+ratings)
 ]
-
 ```
 * Create an Alert reusable functional component to display error message
   * use ``MuiAlert`` to display warning/error message
@@ -105,7 +102,6 @@ const handleSubmit = () => {
         {alert.message}
     </MuiAlert>
   </Snackbar>
-
 ```
 ### Continued development
 * Other ways/techniques to persist states when performing routing
