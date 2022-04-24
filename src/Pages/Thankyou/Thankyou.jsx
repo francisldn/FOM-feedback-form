@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 import cardmachine from '../../assets/illustration-thank-you.svg';
 import './thankyou.styles.css';
-import {useParams} from 'react-router-dom'
+import {useParams} from 'react-router-dom';
 
 const Thankyou = () => {
-    const {ratings} = useParams()
-    console.log(ratings)
+    const {ratings} = useParams();
+    
   return (
     <div className="thankyou-box">
         <div id="card-machine">

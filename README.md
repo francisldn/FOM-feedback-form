@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+# Frontend Mentor - Interactive rating component solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [Interactive rating component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-rating-component-koxpeBUmI). 
+## Table of contents
 
-## Available Scripts
+- [Frontend Mentor - Interactive rating component solution](#frontend-mentor---interactive-rating-component-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [What I learned](#what-i-learned)
+    - [Continued development](#continued-development)
+  - [Author](#author)
+## Overview
+This challenge requires the developer to build a feedback form such that users would be able to:
 
-In the project directory, you can run:
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Select and submit a number rating
+- See the "Thank you" card state after submitting a rating
 
-### `npm start`
+### Screenshot
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![](./form.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![](./thankyou.png)
+### Links
 
-### `npm test`
+- [Code](https://github.com/francisldn/FOM-feedback-form)
+- [Frontend](https://frontendmentor-feedback-form-d0wmazgqk-francisldn.vercel.app)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## My process
+For this project, I created 2 pages:
+* Ratings consists of 
+  * star logo
+  * text
+  * array of ratings from 1 to 5 which changes colour on hover
+  * Submit button which changes colour on hover and will redirect to the Thank-you page
+    * if user does not select any rating before submitting, there will be an warning message which requires user to do so
+* Thank-you consists of
+  * card-machine image
+  * text to display the rating selected by the user and other messages
+    * rating is persisted through url parameter
+### Built with
 
-### `npm run build`
+- CSS custom properties
+- Flexbox
+- [React](https://reactjs.org/)
+- [React Router] (https://v5.reactrouter.com/web/guides/quick-start)
+- [Material UI] (https://v4.mui.com/) - for display alert message
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### What I learned
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To see how you can add code snippets, see below:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* ``createRef`` to extract HTML elements and change CSS styles
+  * using CSS custom properties to update HTML element's CSS styles
+```
+import {createRef} from 'react';
 
-### `npm run eject`
+// create an instance of dom for extracting HTML element
+const ratingRef = createRef();
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+// extract the length of an HTML list
+const n = ratingRef.current.children.length
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+// loop through HTML list element and change CSS styles
+for (let i=0; i<n; i++) {
+    if (i === selectedRating-1) {
+        // update CSS styles using CSS custom properties 
+        ratingRef.current.children[i].style.cssText += "background-color:var(--orange-color); color:white"
+    } else {
+        ratingRef.current.children[i].style.cssText += "background-color:var(--darkblue-color); color:var(--lightgrey-color)"
+    }
+}
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+* ``useParams`` to store and persist state through URL parameters
+```
+import {useParams} from 'react-router-dom';
+// extract ratings from URL parameters
+const {ratings} = useParams();
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+* ``useHistory`` to route webpage
+```
+import {useHistory} from 'react-router-dom';
 
-## Learn More
+let history = useHistory();
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+const handleSubmit = () => {
+  // route to another page
+  history.push("/thankyou/"+ratings)
+]
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+* Create an Alert reusable functional component to display error message
+  * use ``MuiAlert`` to display warning/error message
+```
+  <Snackbar open={alert.open} autoHideDuration={2000} onClose={handleClose}>
+    <MuiAlert onClose={handleClose} elevation={10} variant="filled" severity={alert.type}>
+        {alert.message}
+    </MuiAlert>
+  </Snackbar>
 
-### Code Splitting
+```
+### Continued development
+* Other ways/techniques to persist states when performing routing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Author
 
-### Analyzing the Bundle Size
+- [Github](https://github.com/francisldn)
+- Frontend Mentor - [@francisldn](https://www.frontendmentor.io/profile/francisldn)
+- Twitter - [@francisldn22](https://www.twitter.com/yourusername)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
