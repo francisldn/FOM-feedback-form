@@ -1,4 +1,4 @@
-import React,{createRef, useState} from 'react';
+import React,{createRef} from 'react';
 import starsvg from '../../assets/icon-star.svg';
 import './ratings.styles.css';
 import {useHistory} from 'react-router-dom';

@@ -1,7 +1,7 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState} from 'react';
 import Ratings from './Pages/Ratings/Ratings';
 import Thankyou from './Pages/Thankyou/Thankyou';
-import {BrowserRouter as Router,Route, Switch, generatePath} from 'react-router-dom';
+import {BrowserRouter as Router,Route, Switch} from 'react-router-dom';
 import Alert from './components/Alert';
 import './App.css';
 
