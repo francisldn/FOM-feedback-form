@@ -23,9 +23,10 @@ This challenge requires the developer to build a feedback form such that users w
 
 ### Screenshot
 
-![](./form.png)
+<img src ="/form.png"/>
 
-![](./thankyou.png)
+<img src="/thankyou.png"/>
+
 ### Links
 
 - [Code](https://github.com/francisldn/FOM-feedback-form)
